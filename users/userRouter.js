@@ -43,8 +43,8 @@ router.post('/:id/posts', validateUserId, validatePost, (req, res) => {
 router.get('/', (req, res) => {
   User.get()
         .then(posts => {
-            const messageOfTheDay = process.env.MOTD;
-            res.status(200).json(messageOfTheDay);
+            // const messageOfTheDay = process.env.MOTD;
+            res.status(200).json(posts);
         })
         .catch(err => {
             res.status(500).json({ error: "The posts information could not be retrieved." });
