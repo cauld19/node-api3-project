@@ -14,7 +14,8 @@ server.use('/api/post', postRouter);
 server.use(logger);
 
 server.get('/', (req, res) => {
-  res.send(`<h2>Let's write some middleware!</h2>`);
+  const messageOfTheDay = process.env.MOTD;
+  res.send().json({motd: messageOfTheDay});
 });
 
 //custom middleware
